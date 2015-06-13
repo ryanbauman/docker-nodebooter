@@ -10,6 +10,6 @@ To run the domain manager:
 
 	docker run --name <mydomain> --net=host --detach ryanbauman/nodebooter -D --domainname <mydomain>
 
-This image also has a GPP Node configured (`DevMgr_cd2c5e92b2a0`). To run the device manager:
+This image also has a GPP Node configured (`DevMgr_df10d6e2cabf`). To run the device manager:
 
-	docker run --name gpp1 --net=host --detach ryanbauman/nodebooter -d /nodes/DevMgr_cd2c5e92b2a0/DeviceManager.dcd.xml --domainname <mydomain>
+	docker run --name gpp1 --net=host --detach ryanbauman/nodebooter -d /nodes/DevMgr_df10d6e2cabf/DeviceManager.dcd.xml --domainname <mydomain>
