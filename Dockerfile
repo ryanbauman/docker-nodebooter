@@ -15,7 +15,7 @@ RUN yum update -y && \
                    burstioInterfaces \
                    frontendInterfaces \
                    GPP \
-                   GPP-profile \
+                   GPP-profile && \
                    yum clean all
 
 #Configure omniORB
