@@ -14,9 +14,9 @@ RUN yum update -y && \
                    bulkioInterfaces \
                    burstioInterfaces \
                    frontendInterfaces \
-                   GPP \
-                   GPP-profile && \
+                   GPP && \
                    yum clean all
+
 
 #Configure omniORB
 COPY omniORB.cfg /etc/
@@ -35,6 +35,16 @@ ENV PYTHONPATH /usr/local/redhawk/core/lib64/python:/usr/local/redhawk/core/lib/
 ENV PATH /usr/local/redhawk/core/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 WORKDIR /home/redhawk
 USER redhawk
+
+#Run nodeconfig
+RUN /var/redhawk/sdr/dev/devices/GPP/python/nodeconfig.py --silent \
+    --clean \
+    --gpppath=/devices/GPP \
+    --disableevents \
+    --domainname=REDHAWK_DEV \
+    --sdrroot=/var/redhawk/sdr \
+    --inplace \
+    --nodename DevMgr_default
 
 #If being used as base image; set user root and update
 ONBUILD USER root
